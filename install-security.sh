@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 help_menu() {
     echo 'This script is made to install check-mk, huntress, and Wazuh at once'
@@ -25,8 +25,8 @@ function install_huntress() {
         if [ -f "/tmp/huntress-linux-install.sh" ]; then
             echo "[+] Huntress successfully downloaded installing..."
             chmod +x /tmp/huntress-linux-install.sh
-	    read -p "Enter you Huntress account key: " acckey
-	    read -p "Enter you Huntress organization key: " orgkey
+	        read -p "Enter your Huntress account key: " acckey
+	        read -p "Enter your Huntress organization key: " orgkey
             /tmp/huntress-linux-install.sh -a "$acckey" -o "orgkey"
             sleep 5
             if [ "$(pgrep -x "huntress-agent")" ]; then
